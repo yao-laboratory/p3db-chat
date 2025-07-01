@@ -173,7 +173,7 @@ pip install openai pandas
 
 ## 🚀 Usage
 
-1. Ensure your images are in the `10_image/` folder.
+1. Place your images in the folder specified by `GENEIMG_FOLDER` (or set `folder_path` in the script).
 2. Run the script:
 
 ```bash
@@ -181,6 +181,22 @@ python geneimg.py
 ```
 
 3. The script will process each image and print extracted gene relationships.
+
+---
+
+## 🖼️ Example (geneimg.py)
+
+Suppose you have an image named `example.png` in your image folder. Run:
+
+```bash
+export GENEIMG_FOLDER=$(pwd)
+python geneimg.py
+```
+
+The script will analyze `example.png` and output the gene relationships it finds.
+
+**Image credit:**
+Lin, L., Wu, J., Jiang, M. and Wang, Y., 2021. Plant mitogen-activated protein kinase cascades in environmental stresses. *International Journal of Molecular Sciences*, 22(4), p.1543.
 
 ---
 
