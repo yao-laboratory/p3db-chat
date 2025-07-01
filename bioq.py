@@ -1,9 +1,15 @@
 import openai
 import re
 import sys
+import os
 
-# Set your OpenAI API key
-openai.api_key = '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'
+# --- Configuration ---
+# Set your OpenAI API key here, or set the environment variable OPENAI_API_KEY
+openai.api_key = os.getenv('OPENAI_API_KEY', '')
+
+if not openai.api_key:
+    print("ERROR: Please set your OpenAI API key in bioq.py or as the environment variable OPENAI_API_KEY.")
+    sys.exit(1)
 
 def extract_and_format(user_question):
     prompt = f"""

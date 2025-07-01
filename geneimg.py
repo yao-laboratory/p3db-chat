@@ -9,8 +9,21 @@ import re
 2. wont seperate complex,if the complex was considered seperately, it's still correct. eg picture1, LLG1/LLG2
 '''
 
-client = openai.OpenAI(api_key="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")
-folder_path = "10_image/"
+import sys
+
+# --- Configuration ---
+# Set your OpenAI API key and image folder path here, or use environment variables OPENAI_API_KEY and GENEIMG_FOLDER
+api_key = os.getenv('OPENAI_API_KEY', '')
+folder_path = os.getenv('GENEIMG_FOLDER', '')
+
+if not api_key:
+    print("ERROR: Please set your OpenAI API key in geneimg.py or as the environment variable OPENAI_API_KEY.")
+    sys.exit(1)
+if not folder_path:
+    print("ERROR: Please set your image folder path in geneimg.py or as the environment variable GENEIMG_FOLDER.")
+    sys.exit(1)
+
+client = openai.OpenAI(api_key=api_key)
 first_prompt = """Function as the most accurate gene relationship extractor by analyzing the relationships 
 provided in the image. Genes are enclosed in circles or ellipses, and their relationships are represented 
 by arrows and T-bars. The types of relationships are:

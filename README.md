@@ -1,5 +1,38 @@
 # p3db-chat
 
+# Quick Start
+
+1. **Install requirements:**
+   ```bash
+   pip install openai pandas
+   ```
+
+2. **Set your OpenAI API key:**
+   - Option 1 (recommended):
+     ```bash
+     export OPENAI_API_KEY=your-key-here
+     ```
+   - Option 2: Edit the scripts directly (see comments at the top of each script).
+
+3. **For geneimg.py only:**
+   - Set your image folder path:
+     ```bash
+     export GENEIMG_FOLDER=/path/to/your/images
+     ```
+   - Or edit `folder_path` in the script.
+
+4. **Run the tools:**
+   - For biological question standardization:
+     ```bash
+     python bioq.py
+     ```
+   - For gene relationship extraction from images:
+     ```bash
+     python geneimg.py
+     ```
+
+---
+
 ## Part 1: Biological Question Standardization and Answering Tool
 
 This Python tool streamlines biological research questions by:
@@ -133,7 +166,8 @@ pip install openai pandas
 ## ⚙️ Configuration
 
 - Place your biological pathway images in the `10_image/` directory (default, or edit `folder_path` in the script).
-- Set your OpenAI API key in the script (`client = openai.OpenAI(api_key=...)`).
+- Set your OpenAI API key in the script (`openai.api_key = "<your_key>"` for Part 1, `client = openai.OpenAI(api_key="<your_key>")` for Part 2).
+- Set your image folder path in the script (`folder_path = "<your_folder>"`).
 
 ---
 
@@ -143,7 +177,7 @@ pip install openai pandas
 2. Run the script:
 
 ```bash
-python chatGPT_prompt_improved_byChatGPT_twostep.py
+python geneimg.py
 ```
 
 3. The script will process each image and print extracted gene relationships.
